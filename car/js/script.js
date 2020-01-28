@@ -41,7 +41,7 @@ new Vue({
         },
         filteredCars(){
             return this.cars.filter(car => {
-                return car.name.indexOf(this.search) > -1 || car.model.indexOf(this.search) > -1
+                return car.name.toUpperCase().indexOf(this.search.toUpperCase()) > -1 || car.model.toUpperCase().indexOf(this.search.toUpperCase()) > -1
             })
         }
     },
