@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import ause from './ause'
 import info from './info'
+import category from './category'
 
 Vue.use(Vuex)
 
@@ -28,6 +29,6 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    ause, info
+    ause, info, category
   }
 })
