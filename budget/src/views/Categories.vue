@@ -9,10 +9,10 @@
         <CategoryCreate @created="addNewCategory" />
 
         <CategoryEdit
-          v-if="categories.lenght"
+          v-if="categories.length"
           :categories="categories"
-          :key="categories.lenght + updateCount"
-          @update="updateCategories"
+          :key="categories.length + updateCount"
+          @updated="updateCategories"
          />
          <p v-else class="center">Категорій поки немає</p>
       </div>

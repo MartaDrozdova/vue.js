@@ -110,7 +110,7 @@ export default {
         }
         await this.$store.dispatch('updateCategory', categoryData)
         this.$message('Категорія успішно обновлена')
-        this.$emit('update', categoryData)
+        this.$emit('updated', categoryData)
       } catch (e) {}
     }
   },
