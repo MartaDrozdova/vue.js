@@ -131,12 +131,28 @@ export default {
     }
   },
   methods: {
-    handlerSabmit () {
+    async handlerSabmit () {
       if (this.$v.$invalid) {
         this.$v.$touch()
       }
       if (this.canCreateRecord) {
-        console.log('ok')
+        try {
+          await this.$store.dispatch('createRecord', {
+            categoryId: this.category,
+            amount: this.amount,
+            description: this.description,
+            type: this.type,
+            data: new Date().toJSON()
+          })
+          const bill = this.type === 'income'
+            ? this.info.bill + this.amount
+            : this.info.bill - this.amount
+          await this.$store.dispatch('updateInfo', { bill })
+          this.$message('Запис успішно створений')
+          this.$v.$reset()
+          this.amount = 1
+          this.description = ''
+        } catch (e) {}
       } else {
         this.$message(`Недостатня сумма на рахунку. Нехватає ${this.amount - this.info.bill}`)
       }
