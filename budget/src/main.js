@@ -4,6 +4,7 @@ import Vuelidate from 'vuelidate'
 import router from './router'
 import dateFilter from '@/filters/date.filter'
 import currencyFilter from '@/filters/currency.filter'
+import tooltipDirective from '@/directives/tooltip.directive'
 import store from './store'
 import messagePlugin from '@/utils/message.plugin'
 import Loader from '@/components/app/Loader'
@@ -21,6 +22,7 @@ Vue.filter('date', dateFilter)
 Vue.use(messagePlugin)
 Vue.component('Loader', Loader)
 Vue.filter('currensy', currencyFilter)
+Vue.directive('tooltip', tooltipDirective)
 
 firebase.initializeApp({
   apiKey: 'AIzaSyAZGTlc_DMIRKAWJkonb5m3cZsEsoRuaSU',
